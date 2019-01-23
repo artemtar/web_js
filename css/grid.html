@@ -1,0 +1,70 @@
+
+<style>
+.d1{background-color:lightblue;}
+.d2{background-color:paleturquoise;}
+.d3{background-color:palegreen;}
+.d4{background-color:lightpink;}
+.d5{
+    background-color:lightsalmon;
+    }
+
+.container{
+    font-size: 40px;
+    width: 100%;
+    background: lightgrey;
+    display: grid;
+    grid-template-columns: auto 50px 10% 2fr 1fr;
+    grid-template-rows: 100px 100px;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    grid-gap: 10px 20px;
+    margin: 8px;
+    
+}
+.container2{
+    font-size: 40px;
+    width: 100%;
+    background: lightgrey;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr; 
+    grid-column-gap: 5px;   
+}
+.container3{
+    font-size: 40px;
+    width: 100%;
+    background: lightgrey;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(90px, 1fr));
+    grid-template-rows: 1fr 1fr 1fr; 
+    grid-column-gap: 5px; 
+    grid-template-areas:
+        "header header header"
+        "advert content content"
+        "footer footer footer";
+    padding: 5px;
+    margin: 5px;
+}
+</style>
+<div class="container3">
+        <div class="d1">1</div>
+        <div class="d2">2</div>
+        <div class="d3">3</div>
+        <div class="d4">4</div>
+        <div class="d5" style="grid-area: header">5</div>
+    </div>
+<div class="container2">
+        <div class="d1">1</div>
+        <div class="d2">2</div>
+        <div class="d3">3</div>
+        <div class="d4">4</div>
+        <div class="d5" style="grid-column: 2 /4; justify-self: center">5</div>
+    </div>
+
+<div class="container">
+    <div class="d1">1</div>
+    <div class="d2"style="align-self: center;">2</div>
+    <div class="d3">3</div>
+    <div class="d4">4</div>
+    <div class="d5" style="grid-row: 2 / 1">5</div>
+</div>

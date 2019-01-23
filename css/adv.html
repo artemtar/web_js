@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<style>
+    .container {
+        font-size: 1.5em;
+        min-height: 300px;
+        width: 100%;
+        background: lightgray;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 50px auto 1fr auto;
+        grid-gap: 5px;
+        grid-template-areas:
+            "header"
+            "advert"
+            "content"
+            "footer";
+    }
+    @media (min-width: 600px){
+        .container {
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto 1fr auto;
+        grid-gap: 5px;
+        grid-template-areas:
+            "advert header"
+            "advert content"
+            "advert footer";
+        }
+    }
+
+.d1 {
+    background-color:lightblue;
+    grid-area: header;
+    }
+
+.d2 {
+    background-color:paleturquoise;
+    grid-area: content;
+
+    }
+
+.d3 {
+    background-color:palegreen;
+    grid-area: footer;
+    }
+
+.d4 {
+    background-color:lightpink;
+    grid-area: advert;
+    }
+
+</style>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <div class="container">
+                <div class="d1">1</div>
+                <div class="d2">2</div>
+                <div class="d3">3</div>
+                <div class="d4">4</div>
+        </div>
+        
+        <script src="" async defer></script>
+    </body>
+</html>
