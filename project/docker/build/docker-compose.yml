@@ -1,0 +1,10 @@
+nginx:
+    image: nginx:latest
+    ports:
+        - 80:80
+php:
+    image: php: 7.0-fmp
+    expose:
+      - 9000
+    volumes:
+      - ./www/html:/var/www/html
