@@ -1,10 +1,41 @@
 nginx:
-    image: nginx:latest
+    build: ./nginx
     ports:
         - 80:80
+    links: 
+        - php
+    volumes:
+        - ./www/html:/var/www/html
+
 php:
-    image: php: 7.0-fmp
+    build: ./php
     expose:
       - 9000
+    volumes_from:
+      - app
+    links:
+      - mysql
+
+app:
+    image: php:7.0-fpm
     volumes:
-      - ./www/html:/var/www/html
+      - ./www/html/:/var/www/html
+    command: "true"
+
+mysql:
+    image: mysql:latest
+    volumes_from:
+      -data
+    environment:
+        MYSQL_ROOT_PASSWORD: admin
+        MYSQL_DATABASE: admin
+        MYSQL_USER: user
+        MYSQL_PASSWORD: user
+    volumes_from:
+      - data
+
+data:
+    image: mysql:latest
+    volumes:
+      - /var/lib/mysql
+    command: "true"
