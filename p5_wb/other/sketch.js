@@ -1,21 +1,30 @@
-var x = 150;
-var y = 200;
-var times = 10;
-var width_x = 400;
+var w = 100;
+var h = 100;
+var drop;
 function setup() {
-  createCanvas(width_x,400);
+  createCanvas(w, h);
   background(150);
+  drop = select('#dropzone');
+  drop.dragOver(highlight);
+  drop.dragLeave(unhighlight);
+  drop.drop(gotfile, unhighlight);
+}
+function gotfile(file){
+  var p = createP('');
+  var img = createImg(file.data);
+  var dis = createP(file.name);
+  img.parent(p);
+  img.size(100, 100);
+}
+function unhighlight(){
+  drop.style('background-color', 'white');
+  
+}
+function highlight(){
+  drop.style('background-color', 'lightblue');
 }
 
 function draw() {
-background(map(mouseX, 0, width, 0,  255), map(mouseY, 0, width, 0,  255), 100);
-var i = 0;
-while (i < times){
-  fill (20, 100, 150);
-  ellipse(i * times * 2, mouseY, 20 + i, 20 + i);
-  i = i + 1;
-  // console.log(i)
-}
 
 }
 
