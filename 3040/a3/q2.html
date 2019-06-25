@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Question 2</title>
+        <meta charset="utf-8">
+    </head>
+    <script type="text/javascript">
+    var secret;
+    var cheat = 0; 
+    var input;
+    var guessButton;
+    var out;
+
+    window.onload=function(){
+        secret = Math.floor( Math.random() * 1000 ) + 1;
+        input = document.getElementById("input");
+        guessButton = document.getElementById("guess").addEventListener("click", guess, false);
+        out = document.getElementById("output");
+        }
+    let guess = function(){
+        var inp = input.value;
+        if (checkInput(inp)){
+            var guessInt = parseInt(inp)
+            if (guessInt == secret || guessInt == cheat){
+            out.innerHTML = "Congratulations. You guessed the number!";
+            }
+            else{
+                if (guessInt > secret){
+                    out.innerHTML = "too High";
+                }
+                else{
+                    out.innerHTML = "too Low";
+                }
+            }
+        }
+        else{
+            alert("Input must be an integer between 1 and 1000");
+        }
+    }
+    let checkInput = function(input){
+                console.log(input);
+                if(!isNaN(input)){
+                    if(input.includes(".")){
+                        return false;
+                    }
+                    num = parseInt(input);
+                    if(Number.isInteger(num)){
+                        if(num >= 0 && num <= 1000)
+                            return true;
+                        }
+                }
+                return false;
+            }
+    </script>
+    <body>
+        <h2>Guess an integer between 0 and 1000<span style="font-size: 0.3em";> Cheat is 0</span></em></h5>
+        <div>
+            <input type="text" id="input" style="width: 50px";>
+            <input type="button" value="guess" id="guess">
+        </div>
+        <div style="margin: 20px">
+            <span id="output"></span>
+        </div>
+    </body>
+</html>
